@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha del Alumno</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f6f9; color: #333; }
+        .card { background: white; padding: 24px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); max-width: 600px; margin: 0 auto; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        .info { margin-bottom: 20px; line-height: 1.6; }
+        .info strong { color: #2c3e50; }
+        .matriculas { background: #ecf0f1; padding: 15px; border-radius: 6px; }
+        ul { padding-left: 20px; }
+        .btn-volver { display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; }
+        .btn-volver:hover { background-color: #2980b9; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Ficha del Alumno</h1>
+        
+        <div class="info">
+            <p><strong>ID Alumno:</strong> {{ alumno.idAlumno }}</p>
+            <p><strong>Nombre completo:</strong> {{ alumno.nombre }} {{ alumno.apellido1 }} {{ alumno.apellido2 or '' }}</p>
+            <p><strong>NIF/DNI:</strong> {{ alumno.NIF }}</p>
+            <p><strong>Email:</strong> {{ alumno.email }}</p>
+            <p><strong>Localidad:</strong> {{ alumno.municipio }} ({{ alumno.provincia }})</p>
+        </div>
+
+        <div class="matriculas">
+            <h3>Asignaturas Matriculadas</h3>
+            {% if alumno.matriculas %}
+                <ul>
+                    {% for mat in alumno.matriculas %}
+                        <li>{{ mat.asignatura.nombre }}</li> 
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Este alumno no tiene matrículas activas actualmente.</p>
+            {% endif %}
+        </div>
+
+        <a href="/" class="btn-volver">← Volver al Inicio</a>
+    </div>
+
+</body>
+</html>

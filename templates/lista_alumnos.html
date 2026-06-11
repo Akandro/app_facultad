@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Alumnos</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f6f9; color: #333; }
+        .container { max-width: 1000px; margin: 0 auto; background: white; padding: 24px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #3498db; color: white; }
+        tr:hover { background-color: #f5f5f5; }
+        .badge { background-color: #e67e22; color: white; padding: 3px 8px; border-radius: 4px; font-size: 12px; margin-right: 5px; display: inline-block; }
+        .btn-ver { background-color: #2ecc71; color: white; padding: 6px 10px; text-decoration: none; border-radius: 4px; font-size: 14px; }
+        .btn-ver:hover { background-color: #27ae60; }
+        .btn-inicio { display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #7f8c8d; color: white; text-decoration: none; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Listado General de Alumnos</h1>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>DNI/NIF</th>
+                    <th>Nombre Completo</th>
+                    <th>Asignaturas</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for alumno in alumnos %}
+                <tr>
+                    <td><strong>{{ alumno.idAlumno }}</strong></td>
+                    <td>{{ alumno.NIF }}</td>
+                    <td>{{ alumno.nombre }} {{ alumno.apellido1 }} {{ alumno.apellido2 or '' }}</td>
+                    <td>
+                        {% if alumno.matriculas %}
+                            {% for mat in alumno.matriculas %}
+                                <span class="badge">{{ mat.asignatura.nombre }}</span>
+                            {% endfor %}
+                        {% else %}
+                            <em style="color: #95a5a6;">Sin matrículas</em>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="/alumnos/{{ alumno.idAlumno }}" class="btn-ver">Ver Ficha</a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5" style="text-align: center;">No hay alumnos registrados en la base de datos.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="/" class="btn-inicio">← Volver al Inicio</a>
+    </div>
+
+</body>
+</html>

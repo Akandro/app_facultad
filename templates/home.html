@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding with Roby</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container mt-5">
+        <div class="p-5 mb-4 bg-light rounded-3 border">
+            <div class="container-fluid py-5">
+                <h1 class="display-5 fw-bold text-primary">{{ name }}</h1>
+                <p class="col-md-8 fs-4 text-muted mb-5">
+                    Panel de administración y búsqueda de alumnos de la facultad.
+                </p>
+
+                <div class="card shadow-sm" style="max-width: 450px;">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-secondary mb-3">Consultar por Criterio de Beca</h5>
+                        
+                        <form action="/alumnos-por-beca-vista" method="get">
+                            <div class="mb-3">
+                                <label for="becado" class="form-label fw-semibold">¿Mostrar alumnos becados?</label>
+                                <select class="form-select" name="becado" id="becado">
+                                    <option value="true">Sí (Alumnos Becados)</option>
+                                    <option value="false" selected>No (Alumnos Sin Beca)</option>
+                                </select>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary w-100 fw-bold">
+                                Consultar
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

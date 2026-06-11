@@ -1,0 +1,16 @@
+# alumnos todos:
+# select * from alumnos;
+consultaTodosAlumnos = "select * from alumnos;"
+consultaAlumnosNombreNIF = "select nombre, nif from alumnos;"
+consultaBecados = "select * from alumnos where becado = 1;"
+consultaAlumnosPorApellido = "select * from alumnos order by apellido;"
+
+# EJERCICIO: QUE EJECUTE LA CONSULTA DE LOS ALUMNOS POR EL CRITERIO DE 
+# ESTAR O NO BECADOS
+# EJERCICIO: QUE EJECUTE LA CONSULTA DE LOS ALUMNOS 
+# POR EL CRITERIO DE PRIMER APELLIDO 
+# (POR EJEMPLO, QUE MUESTRE SOLO LOS ALUMNOS CON APELLIDO QUE EMPIECE POR "G")
+# EJERCICIO 3: HACER UN FORMULARIO HTML QUE EJECUTE LA CONSULTA DE LOS ALUMNOS
+# POR EL CRITERIO DE EDAD (POR EJEMPLO, QUE MUESTRE SOLO LOS ALUMNOS CON EDAD MAYOR DE 25 AÑOS)
+# O LOS ALUMNOS QUE TIENEN EXACTAMENTE 20 AÑOS
+# PARA TODOS LOS EJERCICIOS SE DEBEN MOSTRAR
