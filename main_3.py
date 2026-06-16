@@ -162,7 +162,7 @@ def crear_alumno(alumno_in: AlumnoCreate, db: Session = Depends(get_db)):
         provincia=alumno_in.provincia,  
         beca=alumno_in.beca              
     )
-    
+    # Esto es una prueba.
     try:
         db.add(nuevo_alumno)
         db.commit()
